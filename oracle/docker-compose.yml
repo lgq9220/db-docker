@@ -1,0 +1,15 @@
+version: '2'
+services:
+  oracle12c:
+    image: sath89/oracle-12c
+    volumes:
+      - ${MYSQL_DIR}:/u01/app/oracle
+    environment:
+      DBCA_TOTAL_MEMORY: 16192
+    ports:
+      - "1521:1521"
+    restart:
+      always
+networks:
+  oraclenetwork:
+    driver: 'local'

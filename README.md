@@ -1,7 +1,10 @@
 # dockerfile
 
 #### 介绍
-我的docker-compose文件
+数据库：
+    mysql、oracle、redis、cliclhouse
+---
+
 
 #### 软件架构
 软件架构说明
