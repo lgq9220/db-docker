@@ -3,7 +3,7 @@ version: "3"
 # 管理的服务
 services:
   mysql:
-    image: mysql
+    image: mysql:8.0
     ports:
       - 3306:3306
     volumes:

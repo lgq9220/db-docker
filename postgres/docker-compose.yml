@@ -1,6 +1,8 @@
 db:
   restart: always
   image: postgres:9.6.2
+  #解决权限
+  privileged: true
   ports:
     - 5432:5432
   environment:

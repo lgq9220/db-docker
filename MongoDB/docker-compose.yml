@@ -2,28 +2,16 @@
 version: "3"
 # 管理的服务
 services:
-  mongo:
-    image: mongo
+  mongo-db:
+    image: mongo:4.2.3
+    container_name: mongo-db
     restart: always
     ports:
       - 27017:27017
     volumes:
       - ${MONGO_DIR}/db:/data/db
-      - ${MONGO_DIR}/localtime:/etc/localtime
+      # - ${MONGO_DIR}/localtime:/etc/localtime
     environment:
+      TZ: ${TZ}
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-
-#mongo-express为图形化界面，不需要的话可以注释掉
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 27018:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      ME_CONFIG_OPTIONS_EDITORTHEME: ${ME_CONFIG_OPTIONS_EDITORTHEME}
-      ME_CONFIG_MONGODB_SERVER: mongodb
-      ME_CONFIG_BASICAUTH_USERNAME: ${ME_CONFIG_BASICAUTH_USERNAME}
-      ME_CONFIG_BASICAUTH_PASSWORD: ${ME_CONFIG_BASICAUTH_PASSWORD}
