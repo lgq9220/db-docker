@@ -1,0 +1,17 @@
+# docker-compose.yml文件的版本
+version: "3"
+# 管理的服务
+services:
+  mssql:
+      container_name: mssql
+      # 指定镜像
+      image: mcr.microsoft.com/mssql/server
+      ports:
+        # 端口映射
+        - 1433:1433
+      volumes:
+        # 目录映射
+        - "${MSSQL_DIR}/data:/var/lib/rabbitmq"
+      environment:
+        - ACCEPT_EULA=${ACCEPT_EULA}
+        - SA_PASSWORD=${SA_PASSWORD}

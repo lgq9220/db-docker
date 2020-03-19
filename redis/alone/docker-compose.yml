@@ -10,8 +10,8 @@ services:
         - 6379:6379
       volumes:
         # 目录映射
-        - "${REDIS_DIR}/conf:/usr/local/etc/redis"
-        - "${REDIS_DIR}/data:/data"
+        - "./conf/redis.conf:/usr/local/etc/redis/redis.conf"
+        - "./data:/data"
       command:
         # 执行的命令
-        redis-server
+        redis-server /usr/local/etc/redis/redis.conf

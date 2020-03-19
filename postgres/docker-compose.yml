@@ -1,10 +1,10 @@
 db:
   restart: always
-  image: postgres:9.6.2 // postgres 镜像
+  image: postgres:9.6.2
   ports:
-    - 5432:5432  //映射端口号
+    - 5432:5432
   environment:
-    POSTGRES_PASSWORD: ${pwd}  //密码
-    PGDATA: /var/lib/postgresql/data/pgdata //数据存储文件夹
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    PGDATA: /var/lib/postgresql/data/pgdata 
   volumes:
-    - ./data:/var/lib/postgresql/data/pgdata //将数据映射到对应的路径
+    - ./data:/var/lib/postgresql/data/pgdata 

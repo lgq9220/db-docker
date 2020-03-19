@@ -17,6 +17,6 @@ services:
       - ./data:/var/lib/rabbitmq
     #环境变量
     environment:
-      - RABBITMQ_DEFAULT_VHOST=my_vhost
-      - RABBITMQ_DEFAULT_USER=admin
-      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_DEFAULT_VHOST}
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}

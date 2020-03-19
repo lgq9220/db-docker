@@ -1,0 +1,40 @@
+# docker-compose.yml文件的版本
+version: "3"
+# 管理的服务
+services:
+  master:
+    # 指定镜像
+    image: redis:5
+    container_name: redis-master
+    ports:
+      # 端口映射
+      - 6379:6379
+    volumes:
+      # 目录映射
+      - "./conf/redis.conf:/usr/local/etc/redis/redis.conf"
+      - "./data:/data"
+    command:
+      # 执行的命令
+      redis-server
+  slave1:
+    image: redis:5
+    container_name: redis-slave-1
+    ports:
+      - 6380:6379
+    volumes:
+      # 目录映射
+      - "./conf/slave.conf:/usr/local/etc/redis/redis.conf"
+      - "./data:/data"
+    command: redis-server 
+    
+
+  slave2:
+    image: redis:5
+    container_name: redis-slave-2
+    ports:
+      - 6381:6379
+    volumes:
+      # 目录映射
+      - "./conf/slave.conf:/usr/local/etc/redis/redis.conf"
+      - "./data:/data"
+    command: redis-server

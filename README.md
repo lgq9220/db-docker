@@ -2,25 +2,34 @@
 
 #### 介绍
 数据库：
-    mysql、oracle、redis、cliclhouse
----
+    ClickHouse
+    MongoDB
+    Mysql
+    Oracle
+    postgres
+    rabbitMQ
+    redis(单机、哨兵)
+    SQL Server
+
+#### 演示
+ClickHouse
+
+MongoDB
+
+Mysql
+
+Oracle
+
+postgres
+
+rabbitMQ
+
+redis(单机、哨兵)
+
+SQL Server
 
 
-#### 软件架构
-软件架构说明
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 参与贡献
 
