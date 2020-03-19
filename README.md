@@ -2,14 +2,14 @@
 
 #### 介绍
 数据库：
-    ClickHouse
-    MongoDB 4.2.3
-    Mysql 8.0
-    Oracle 12c
-    postgres 9.6.2
-    rabbitMQ 3.7-rc
-    redis(单机、哨兵) 5.0
-    SQL Server 2019
+   - ClickHouse    
+   - MongoDB 4.2.3    
+   - Mysql 8.0    
+   - Oracle 12c    
+   - postgres 9.6.2    
+   - rabbitMQ 3.7-rc    
+   - redis(单机、哨兵) 5.0   
+   - SQL Server 2019    
 
 #### 演示
 ClickHouse
