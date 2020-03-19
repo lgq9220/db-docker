@@ -11,11 +11,11 @@ services:
       - 6379:6379
     volumes:
       # 目录映射
-      - "./conf/redis.conf:/usr/local/etc/redis/redis.conf"
+      - "./conf/master.conf:/usr/local/etc/redis/redis.conf"
       - "./data:/data"
     command:
       # 执行的命令
-      redis-server
+      redis-server /usr/local/etc/redis/redis.conf
   slave1:
     image: redis:5
     container_name: redis-slave-1
@@ -23,9 +23,9 @@ services:
       - 6380:6379
     volumes:
       # 目录映射
-      - "./conf/slave.conf:/usr/local/etc/redis/redis.conf"
-      - "./data:/data"
-    command: redis-server 
+      - "./conf/slave1.conf:/usr/local/etc/redis/redis.conf"
+      - "./data/slave1:/data"
+    command: redis-server /usr/local/etc/redis/redis.conf
     
 
   slave2:
@@ -35,6 +35,6 @@ services:
       - 6381:6379
     volumes:
       # 目录映射
-      - "./conf/slave.conf:/usr/local/etc/redis/redis.conf"
-      - "./data:/data"
-    command: redis-server
+      - "./conf/slave2.conf:/usr/local/etc/redis/redis.conf"
+      - "./data/slave2:/data"
+    command: redis-server /usr/local/etc/redis/redis.conf

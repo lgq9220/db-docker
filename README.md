@@ -8,7 +8,7 @@
    - Oracle 12c    
    - postgres 9.6.2    
    - rabbitMQ 3.7-rc    
-   - redis(单机、哨兵) 5.0   
+   - redis(单机、一主二从) 5.0   
    - SQL Server 2019  
 
 #### 连接参数(默认)
@@ -67,7 +67,6 @@
 ClickHouse    
 
 
-
 MongoDB    
 ![](https://gitee.com/KimHX/img-folder/raw/master/mongo.png)
 
@@ -93,15 +92,14 @@ rabbitMQ
 
 
 
-redis(单机、哨兵)    
+redis(单机、一主二从)    
 单机：    
 ![](https://gitee.com/KimHX/img-folder/raw/master/redis-alone.png)
 
 
 
-哨兵:    
-还在修改    
-
+一主二从:        
+![](https://gitee.com/KimHX/img-folder/raw/master/redis-c.png)
 
 
 SQL Server    
