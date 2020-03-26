@@ -9,11 +9,11 @@ services:
      - "9009:9009"
      volumes:
      - ./data:/var/lib/clickhouse
-    #  - ./config/config.xml:/etc/clickhouse-server/config.xml
+     - ./config/config.xml:/etc/clickhouse-server/config.xml
     # 默认配置了两个用户，一个只读seluser，一个写入inuser，默认密码都是123456，配置在user.xml
      - ./config/users.xml:/etc/clickhouse-server/users.xml
-     - ./log/clickhouse-server.log:/var/log/clickhouse-server/clickhouse-server.log
-     - ./log/clickhouse-server.err.log:/var/log/clickhouse-server/clickhouse-server.err.log
+    #  - ./log/clickhouse-server.log:/var/log/clickhouse-server/clickhouse-server.log
+    #  - ./log/clickhouse-server.err.log:/var/log/clickhouse-server/clickhouse-server.err.log
 
      ulimits:
       nproc: 65535

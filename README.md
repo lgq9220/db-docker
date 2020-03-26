@@ -16,7 +16,7 @@
 
 
     ClickHouse    
-        username: seluser、inuser     
+        username: seluser、inuser、default     
         password: 123456    
         port：8123    
 
@@ -64,7 +64,10 @@
         port：1433    
 
 #### 演示
-ClickHouse    
+ClickHouse       
+![](https://gitee.com/KimHX/img-folder/raw/master/clickhouse.png)
+   
+
 
 
 MongoDB    
