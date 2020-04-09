@@ -10,6 +10,7 @@
    - rabbitMQ 3.7-rc    
    - redis(单机、一主二从) 5.0   
    - SQL Server 2019  
+   - elasticsearch (二主一从)
 
 #### 连接参数(默认)
 数据库：
@@ -107,6 +108,11 @@ redis(单机、一主二从)
 
 SQL Server    
 ![](https://gitee.com/KimHX/img-folder/raw/master/sqlserver.png)
+
+elasticsearch
+![](https://gitee.com/KimHX/img-folder/raw/master/es1.png)
+![](https://gitee.com/KimHX/img-folder/raw/master/es2.png)
+![](https://gitee.com/KimHX/img-folder/raw/master/es3.png)
 
 
 

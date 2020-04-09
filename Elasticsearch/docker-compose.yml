@@ -1,0 +1,84 @@
+version: '2.2'
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    container_name: es01
+    environment:
+      # - node.name=es01
+      # - cluster.name=es-docker-cluster
+      # - discovery.seed_hosts=es02,es03
+      # - cluster.initial_master_nodes=es01,es02,es03
+      # - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/data01:/usr/share/elasticsearch/data
+      - ./config/es01.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./logs/es01/:/usr/share/elasticsearch/logs
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    container_name: es02
+    environment:
+      # - node.name=es02
+      # - cluster.name=es-docker-cluster
+      # - discovery.seed_hosts=es01,es03
+      # - cluster.initial_master_nodes=es01,es02,es03
+      # - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/data02:/usr/share/elasticsearch/data
+      - ./config/es02.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./logs/es02/:/usr/share/elasticsearch/logs
+    networks:
+      - elastic
+  es03:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    container_name: es03
+    environment:
+      # - node.name=es03
+      # - cluster.name=es-docker-cluster
+      # - discovery.seed_hosts=es01,es02
+      # - cluster.initial_master_nodes=es01,es02,es03
+      # - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/data03:/usr/share/elasticsearch/data
+      - ./config/es03.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./logs/es03/:/usr/share/elasticsearch/logs
+    networks:
+      - elastic
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+  data03:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
+
+
+# Submit a _cat/nodes request to see that the nodes are up and running:
+# curl -X GET "localhost:9200/_cat/nodes?v&pretty"
+# ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
+# 172.21.0.4           32          96  39    2.47    1.27     0.69 dilm      *      es01
+# 172.21.0.3           29          96  39    2.47    1.27     0.69 dilm      -      es02
+# 172.21.0.2           22          96  40    2.47    1.27     0.69 dil       -      es03

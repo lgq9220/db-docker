@@ -1,0 +1,24 @@
+cluster.name: my-es
+node.name: es01
+node.master: true
+node.data: true
+ 
+network.host: es01
+http.port: 9200
+transport.tcp.port: 9300
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+ 
+discovery.zen.ping.unicast.hosts: ["es01:9300", "es02:9300", "es03:9300"]
+discovery.zen.minimum_master_nodes: 2
+discovery.zen.ping_timeout: 5s
+ 
+bootstrap.memory_lock: true
+action.destructive_requires_name: true
+
+
+# - node.name=es01
+# - cluster.name=es-docker-cluster
+# - discovery.seed_hosts=es02,es03
+# - cluster.initial_master_nodes=es01,es02,es03
+# - bootstrap.memory_lock=true

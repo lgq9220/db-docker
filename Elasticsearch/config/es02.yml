@@ -1,0 +1,17 @@
+cluster.name: my-es
+node.name: es02
+node.master: true
+node.data: true
+ 
+network.host: es02
+http.port: 9200
+transport.tcp.port: 9300
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+ 
+discovery.zen.ping.unicast.hosts: ["es01:9300", "es02:9300", "es03:9300"]
+discovery.zen.minimum_master_nodes: 2
+discovery.zen.ping_timeout: 5s
+ 
+bootstrap.memory_lock: true
+action.destructive_requires_name: true
