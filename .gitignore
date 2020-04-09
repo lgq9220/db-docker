@@ -2,3 +2,4 @@
 data
 #忽略所有.DS开头的文件
 .DS*
+logs
