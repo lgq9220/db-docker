@@ -1,0 +1,29 @@
+[mysqld]
+
+# 数据库编号, 要具有唯一性, 不能跟其他数据库重复, 方便同步区分
+server-id = 21
+
+# 复制过滤：也就是指定哪个数据库不用同步（mysql库一般不同步）
+binlog-ignore-db=mysql
+
+# 为每个session分配的内存，在事务过程中用来存储二进制日志的缓存
+binlog_cache_size=1M 
+
+# 防止改变数据(
+read_only = 1
+
+slave_skip_errors=1146
+
+# relay_log配置中继日志
+relay-log = slave-relay-bin
+
+character_set_server = utf8mb4
+
+init_connect = 'SET NAMES utf8mb4'
+
+symbolic-links=0
+
+default_authentication_plugin=mysql_native_password
+
+# 要同步的库
+replicate_do_db=mydb

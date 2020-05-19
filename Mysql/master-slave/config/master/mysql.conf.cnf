@@ -1,0 +1,25 @@
+[mysqld]
+# 数据库编号, 要具有唯一性, 不能跟其他数据库重复, 方便同步区分
+server-id = 11
+
+# 复制过滤：也就是指定哪个数据库不用同步（mysql库一般不同步）
+binlog-ignore-db=mysql
+
+# mysql日志
+log-bin = master-bin
+# log_bin_index = master-bin.index
+
+# 为每个session分配的内存，在事务过程中用来存储二进制日志的缓存
+binlog_cache_size=1M 
+
+# binlog日志格式，mysql默认采用statement，建议使用 mixed(是statement和row模式的结合)
+binlog_format = mixed
+
+
+character_set_server = utf8mb4
+
+init_connect = 'SET NAMES utf8mb4'
+
+symbolic-links=0
+
+default_authentication_plugin=mysql_native_password
