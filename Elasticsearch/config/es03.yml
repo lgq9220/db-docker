@@ -15,3 +15,5 @@ discovery.zen.ping_timeout: 5s
  
 bootstrap.memory_lock: true
 action.destructive_requires_name: true
+
+cluster.initial_master_nodes: es01,es02,es03
